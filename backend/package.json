@@ -1,0 +1,23 @@
+{
+  "name": "factura-updater",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/roncortez/factura-updater.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/roncortez/factura-updater/issues"
+  },
+  "homepage": "https://github.com/roncortez/factura-updater#readme",
+  "dependencies": {
+    "express": "^4.19.2"
+  }
+}

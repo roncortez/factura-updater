@@ -1,0 +1,60 @@
+.data-table {
+    border-collapse: collapse;
+    width: 50%;
+    margin: 7px 0;
+    font-size: 10px;
+    text-align: left;
+}
+
+.data-table thead tr {
+    background-color: #009879;
+    color: #ffffff;
+    text-align: left;
+}
+
+.data-table th, .data-table td {
+    padding: 5px 3px;
+}
+
+.data-table tbody tr {
+    border-bottom: 1px solid #dddddd;
+}
+
+.data-table tbody tr:nth-of-type(even) {
+    background-color: #f3f3f3;
+}
+
+.data-table tbody tr:last-of-type {
+    border-bottom: 1px solid #009879;
+}
+
+
+/* Fijar ancho de columnas */
+th:nth-child(1),
+td:nth-child(1) {
+    width: 33%; /* Porcentaje del ancho total */
+}
+
+th:nth-child(2),
+td:nth-child(2) {
+    width: 33%; /* Porcentaje del ancho total */
+}
+
+th:nth-child(3),
+td:nth-child(3) {
+    width: 33%; /* Porcentaje del ancho total */
+}
+
+/* Estilos adicionales para filas pares/impares y hover */
+tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+tr:hover {
+    background-color: #f1f1f1;
+}
+
+.data-table tbody tr:hover {
+    background-color: #f1f1f1;
+    cursor: pointer; /* Cambia el cursor al pasar por encima */
+  }

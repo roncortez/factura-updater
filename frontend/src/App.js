@@ -1,54 +1,35 @@
-
 import './App.css';
 import React, { useState } from 'react';
-import axios from 'axios';
+import DataForm from './components/data/DataForm';
+import DataTable from './components/data/DataTable';
+import useFetchData from './hooks/useFetchData';
+import UpdateForm from './components/data/UpdateForm';
+
+
 
 function App() {
-  
-  const [numero, setNumero] = useState('');
-  const [resultados, setResultados] = useState([]);
-  const [error, setError] = useState('');
+  const { resultados, error, fetchData } = useFetchData();
+  const [seleccion, setSeleccion] = useState(null);
 
-  const handleNumeroChange = (e) => setNumero(e.target.value);
+    const handleDataFetch = (numero) => {
+        fetchData(numero);
+    };
 
-  const handleSubmit = async (e) => {
-      e.preventDefault();
-      try {
-          const response = await axios.get(`http://localhost:3001/api/data/${numero}`);
-          setResultados(response.data);
-          setError('');
-      } catch (error) {
-          console.error('Error al obtener datos:', error);
-          setError('Error al obtener datos');
-      }
-  };
+    const handleSeleccion = (seleccion) => {
+      setSeleccion(seleccion);
+    };
 
-  return (
-    <div className="App">
-      <h1>Consulta de Datos</h1>
-            <form onSubmit={handleSubmit}>
-                <input
-                    type="text"
-                    value={numero}
-                    onChange={handleNumeroChange}
-                    placeholder="Ingrese un número"
-                />
-                <button type="submit">Consultar</button>
-            </form>
-
-            {error && <p>{error}</p>}
-
-            <div>
-                <h2>Resultados</h2>
-                <ul>
-                    {resultados.map((resultado, index) => (
-                        <li key={index}>
-                            Número: {resultado.Numero}, Usuario: {resultado.Usuario}, Fecha: {resultado.Fecha}
-                        </li>
-                    ))}
-                </ul>
-            </div>
-    </div>
+    return (
+      <div className="App">
+          <main className='main-container'>
+              <DataForm onSubmit={handleDataFetch} />
+              {error && <p>{error}</p>}
+              <div className="data-container">
+                <DataTable resultados={resultados} onSelect={handleSeleccion} />
+                {seleccion && <UpdateForm seleccion={seleccion} />}
+              </div>
+          </main>
+      </div>
   );
 }
 

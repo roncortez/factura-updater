@@ -1,6 +1,4 @@
-.App {
-  text-align: center;
-}
+
 
 .App-logo {
   height: 40vmin;
@@ -35,4 +33,16 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.main-container {
+  display: inline-flexbox;
+  align-items: center;
+  width: 100%;
+  max-width: 1200px; /* Ajusta el ancho máximo según tu diseño */
+  padding: 20px;
+}
+
+.data-container {
+  display: flex;
 }

@@ -1,6 +1,7 @@
 require('dotenv').config();
 const sql = require('mssql');
 
+console.log('DB_SERVER:', process.env.DB_SERVER); // Añadir esta línea para depurar
 
 const dbConfig= {
     "user": process.env.DB_USER, // Database username
